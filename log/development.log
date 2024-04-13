@@ -1,0 +1,484 @@
+Started GET "/" for 127.0.0.1 at 2024-04-11 21:59:52 -0400
+  [1m[35m (116.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.1.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.1.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 383)
+Completed 200 OK in 6ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 7483)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-11 22:02:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.1.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.1.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 383)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 4521)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:02:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:05:31 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 114)
+  Rendered layout layouts/application.html.erb (Duration: 115.8ms | Allocations: 70357)
+Completed 200 OK in 117ms (Views: 116.5ms | ActiveRecord: 0.0ms | Allocations: 71507)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (108.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-04-12 02:10:08.868516', '2024-04-12 02:10:08.868518') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20240412020638)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240412020638') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "Hello Rails"], ["body", "I am on Rails!"], ["created_at", "2024-04-12 02:11:36.487399"], ["updated_at", "2024-04-12 02:11:36.487399"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2024-04-11 22:17:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.1.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.1.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 383)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 4521)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:18:29 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 10411)
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 31335)
+Completed 200 OK in 56ms (Views: 48.9ms | ActiveRecord: 0.7ms | Allocations: 39174)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:07 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 679)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1843)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 2150)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:07 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 598)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1693)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 1957)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:08 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1699)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 1953)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:08 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1714)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 1968)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:08 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1702)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 1956)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:08 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1704)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 1958)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:08 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1725)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 1979)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:08 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1692)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 1946)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:08 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1726)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 1980)
+
+
+Started GET "/articles" for 127.0.0.1 at 2024-04-11 22:20:09 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1720)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 1974)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-11 22:20:11 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.1.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.1.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 19)
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 223)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:29:32 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1015)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:39 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 3912)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000011990>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:40 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3287)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000011cd8>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:41 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000011ff8>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:42 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3281)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000012318>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:42 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000012638>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:42 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000012958>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:43 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000012c78>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:43 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000012f98>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:43 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 3278)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x000000000132b8>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:43 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3278)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000013600>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:44 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000013920>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:44 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000013c40>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:44 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3278)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000013f60>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:44 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3278)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000014280>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:45 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x000000000145a0>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:45 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x000000000148c0>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:45 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000014be0>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:46 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000014f28>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:30:46 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+NameError (undefined local variable or method `id' for #<ArticlesController:0x00000000015248>
+
+    @article = Article.find(params[id:])
+                                   ^^^):
+  
+app/controllers/articles_controller.rb:6:in `show'
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-11 22:31:02 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 162)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1719)
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 1.0ms | Allocations: 8741)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-12 19:10:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (12.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 10514)
+  Rendered layout layouts/application.html.erb (Duration: 99.1ms | Allocations: 29706)
+Completed 200 OK in 150ms (Views: 88.0ms | ActiveRecord: 13.3ms | Allocations: 39743)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-12 19:11:57 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 170)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 2455)
+Completed 200 OK in 29ms (Views: 3.8ms | ActiveRecord: 0.1ms | Allocations: 9739)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2024-04-12 19:12:04 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 17)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1190)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 2078)
+
+
